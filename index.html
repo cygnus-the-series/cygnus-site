@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYGNUS | Hard Sci-Fi Mini-Series</title>
+    <title>CYGNUS | Hard Sci-Fi</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&display=swap');
+
         :root {
             --bg-color: #050505;
-            --text-color: #e0e0e0;
-            --accent-color: #c5a059; /* Muted Gold */
-            --mono-font: 'Courier New', Courier, monospace;
+            --text-color: #f0f0f0;
+            --accent-color: #c5a059;
+            --dim-text: #888;
         }
 
         body, html {
@@ -17,83 +19,114 @@
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            /* Update the URL below with your accretion disk image link */
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://github.com/cygnus-the-series/cygnus-site/blob/main/Black-hole-Jamie.png?raw=true');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
         }
 
         .header {
-            padding: 40px;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            letter-spacing: 1.5rem;
-            text-transform: uppercase;
-            font-weight: 300;
+        }
+
+        .header h1 {
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 100; /* Ultra Thin */
+            letter-spacing: 2rem;
+            margin: 0;
             color: var(--accent-color);
-            border-bottom: 1px solid #222;
+            text-transform: uppercase;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .sidebar {
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: var(--dim-text);
+            border-right: 1px solid #333;
+            padding-right: 20px;
+        }
+
+        .sidebar-item { margin-bottom: 20px; }
+        .sidebar-label { color: var(--accent-color); display: block; margin-bottom: 5px; }
+
+        .video-section {
+            width: 100%;
+            background: #000;
+            border: 1px solid #222;
         }
 
         .video-container {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 */
             height: 0;
-            overflow: hidden;
-            background: #000;
-            max-width: 1200px;
-            margin: 40px auto;
-            border: 1px solid #333;
         }
 
         .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
         }
 
         .briefing {
+            margin-top: 40px;
+            line-height: 1.8;
+            font-weight: 300;
             max-width: 800px;
-            margin: 60px auto;
-            padding: 0 20px;
-            line-height: 1.6;
-            font-size: 1.1rem;
         }
 
-        .status-box {
-            font-family: var(--mono-font);
-            border-left: 3px solid var(--accent-color);
-            padding-left: 20px;
-            margin-bottom: 40px;
-            font-size: 0.9rem;
-            color: #888;
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 60px;
         }
 
-        .cta {
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border: 1px solid #333;
+            filter: grayscale(30%);
+            transition: 0.3s;
+        }
+
+        .gallery img:hover { filter: grayscale(0%); border-color: var(--accent-color); }
+
+        .acquisition-notice {
+            margin-top: 80px;
+            padding: 30px;
+            border: 1px solid #333;
+            background: rgba(255,255,255,0.02);
             text-align: center;
-            margin: 80px 0;
         }
 
         .btn {
-            padding: 15px 40px;
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
             border: 1px solid var(--accent-color);
             color: var(--accent-color);
             text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .btn:hover {
-            background: var(--accent-color);
-            color: #000;
-        }
-
-        footer {
-            padding: 40px;
-            font-family: var(--mono-font);
-            font-size: 0.7rem;
-            text-align: center;
-            color: #444;
             letter-spacing: 0.1rem;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 900px) {
+            .main-content { grid-template-columns: 1fr; }
+            .sidebar { border-right: none; border-bottom: 1px solid #333; padding-bottom: 20px; }
         }
     </style>
 </head>
@@ -103,29 +136,53 @@
         <h1>CYGNUS</h1>
     </div>
 
-    <div class="video-container">
-        <iframe src="https://player.vimeo.com/video/INSERT_VIMEO_ID_HERE?background=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <div class="main-content">
+        <aside class="sidebar">
+            <div class="sidebar-item">
+                <span class="sidebar-label">COORDINATES</span>
+                RA 19h 58m 21.67s | Dec +35° 12′ 05.7″
+            </div>
+            <div class="sidebar-item">
+                <span class="sidebar-label">VELOCITY</span>
+                0.999c [Relativistic Limit]
+            </div>
+            <div class="sidebar-item">
+                <span class="sidebar-label">DETECTION</span>
+                Deep Space Survey #772-B
+            </div>
+            <div class="sidebar-item">
+                <span class="sidebar-label">STATUS</span>
+                Pre-Production // Phase I
+            </div>
+        </aside>
+
+        <section>
+            <div class="video-section">
+                <div class="video-container">
+                    <iframe src="https://player.vimeo.com/video/1165476107?title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="briefing">
+                <p>During a routine deep-space survey, high-energy gamma-ray bursts were identified originating from the Cygnus constellation. Initial analysis suggested a natural pulsar event. Further investigation revealed a terrifying reality: an ultra-relativistic jet, precisely aimed at Sol, moving at 99.9% the speed of light.</p>
+                <p><strong>CYGNUS</strong> is a hard sci-fi exploration into the physics of Type III civilizations and the logistical horror of a high-velocity impact event.</p>
+            </div>
+
+            <div class="gallery">
+                <img src="https://github.com/cygnus-the-series/cygnus-site/blob/main/Black-hole-Jamie.png?raw=true" alt="Concept Art">
+                <img src="https://github.com/cygnus-the-series/cygnus-site/blob/main/Black-hole-Jamie.png?raw=true" alt="Concept Art">
+                <img src="https://github.com/cygnus-the-series/cygnus-site/blob/main/Black-hole-Jamie.png?raw=true" alt="Concept Art">
+            </div>
+
+            <div class="acquisition-notice">
+                <p style="color: #666; font-size: 0.9rem;">The production is currently reviewing inquiries for high-fidelity VFX and Cinematography collaboration. For technical briefing access, contact the office.</p>
+                <a href="mailto:info@cygnustheseries.com" class="btn">Inquire for Collaboration</a>
+            </div>
+        </section>
     </div>
 
-    <div class="briefing">
-        <div class="status-box">
-            [ CLASSIFIED BRIEFING // LEVEL 5 ACCESS REQUIRED ]<br>
-            PROJECT: CYGNUS<br>
-            THREAT: TYPE III CIVILIZATION WEAPONIZED JET<br>
-            TIMELINE: 35 DAYS TO IMPACT
-        </div>
-        
-        <p>A hard sci-fi mini-series exploring the physics of ultra-relativistic astrophysical jets. When a signal from a Type III civilization reaches Earth, the scientific community realizes the radiation isn't a message—it's a side effect of a weapon traveling at 0.999c.</p>
-        
-        <p>Currently in pre-production. Seeking cinematography and VFX collaborators obsessed with scientific realism and cinematic brutalism.</p>
-    </div>
-
-    <div class="cta">
-        <a href="mailto:info@cygnustheseries.com" class="btn">Contact Production</a>
-    </div>
-
-    <footer>
-        &copy; 2026 CYGNUS PRODUCTIONS // FOSTER CITY // TORRANCE // .0999C_LATENCY
+    <footer style="padding: 100px 40px 40px; text-align: center; color: #444; font-size: 0.7rem; letter-spacing: 0.2rem;">
+        &copy; 2026 CYGNUS PRODUCTIONS // FOSTER CITY // TORRANCE
     </footer>
 
 </body>
