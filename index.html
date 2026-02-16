@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYGNUS | Hard Sci-Fi Mini-Series</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --text-color: #e0e0e0;
+            --accent-color: #c5a059; /* Muted Gold */
+            --mono-font: 'Courier New', Courier, monospace;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .header {
+            padding: 40px;
+            text-align: center;
+            letter-spacing: 1.5rem;
+            text-transform: uppercase;
+            font-weight: 300;
+            color: var(--accent-color);
+            border-bottom: 1px solid #222;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            background: #000;
+            max-width: 1200px;
+            margin: 40px auto;
+            border: 1px solid #333;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .briefing {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .status-box {
+            font-family: var(--mono-font);
+            border-left: 3px solid var(--accent-color);
+            padding-left: 20px;
+            margin-bottom: 40px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .cta {
+            text-align: center;
+            margin: 80px 0;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--accent-color);
+            color: #000;
+        }
+
+        footer {
+            padding: 40px;
+            font-family: var(--mono-font);
+            font-size: 0.7rem;
+            text-align: center;
+            color: #444;
+            letter-spacing: 0.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>CYGNUS</h1>
+    </div>
+
+    <div class="video-container">
+        <iframe src="https://player.vimeo.com/video/INSERT_VIMEO_ID_HERE?background=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+
+    <div class="briefing">
+        <div class="status-box">
+            [ CLASSIFIED BRIEFING // LEVEL 5 ACCESS REQUIRED ]<br>
+            PROJECT: CYGNUS<br>
+            THREAT: TYPE III CIVILIZATION WEAPONIZED JET<br>
+            TIMELINE: 35 DAYS TO IMPACT
+        </div>
+        
+        <p>A hard sci-fi mini-series exploring the physics of ultra-relativistic astrophysical jets. When a signal from a Type III civilization reaches Earth, the scientific community realizes the radiation isn't a message—it's a side effect of a weapon traveling at 0.999c.</p>
+        
+        <p>Currently in pre-production. Seeking cinematography and VFX collaborators obsessed with scientific realism and cinematic brutalism.</p>
+    </div>
+
+    <div class="cta">
+        <a href="mailto:info@cygnustheseries.com" class="btn">Contact Production</a>
+    </div>
+
+    <footer>
+        &copy; 2026 CYGNUS PRODUCTIONS // FOSTER CITY // TORRANCE // .0999C_LATENCY
+    </footer>
+
+</body>
+</html>
