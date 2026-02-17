@@ -5,30 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CYGNUS | Hard Sci-Fi</title>
     <style>
-
-        /* Navigation Bar Styling */
-.nav-bar {
-    display: flex;
-    justify-content: center;
-    padding: 30px 0;
-    gap: 40px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.nav-bar a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 0.7rem;
-    letter-spacing: 0.3rem;
-    font-weight: 300;
-    text-transform: uppercase;
-    transition: 0.3s;
-}
-
-.nav-bar a:hover {
-    color: var(--accent-color);
-}
-        
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&display=swap');
 
         :root {
@@ -44,15 +20,36 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: 'Inter', sans-serif;
-            /* Update the URL below with your accretion disk image link */
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://github.com/cygnus-the-series/cygnus-site/blob/main/Black-hole-Jamie.png?raw=true');
+            /* Parallax Background */
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('YOUR_BACKGROUND_IMAGE_URL');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
         }
 
+        /* Navigation */
+        .nav-bar {
+            display: flex;
+            justify-content: center;
+            padding: 30px 0;
+            gap: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-bar a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.7rem;
+            letter-spacing: 0.3rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .nav-bar a:hover { color: var(--accent-color); }
+
         .header {
-            height: 60vh;
+            height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -61,7 +58,7 @@
 
         .header h1 {
             font-size: clamp(3rem, 10vw, 8rem);
-            font-weight: 100; /* Ultra Thin */
+            font-weight: 100;
             letter-spacing: 2rem;
             margin: 0;
             color: var(--accent-color);
@@ -70,34 +67,31 @@
 
         .main-content {
             display: grid;
-            grid-template-columns: 250px 1fr;
+            grid-template-columns: 300px 1fr;
             max-width: 1400px;
             margin: 0 auto;
-            gap: 40px;
-            padding: 40px;
+            gap: 50px;
+            padding: 60px 40px;
         }
 
         .sidebar {
             font-family: monospace;
             font-size: 0.75rem;
             color: var(--dim-text);
-            border-right: 1px solid #333;
-            padding-right: 20px;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            padding-right: 30px;
         }
 
-        .sidebar-item { margin-bottom: 20px; }
-        .sidebar-label { color: var(--accent-color); display: block; margin-bottom: 5px; }
-
-        .video-section {
-            width: 100%;
-            background: #000;
-            border: 1px solid #222;
-        }
+        .sidebar-item { margin-bottom: 30px; }
+        .sidebar-label { color: var(--accent-color); display: block; margin-bottom: 5px; letter-spacing: 0.1rem; }
 
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
             height: 0;
+            overflow: hidden;
+            border: 1px solid #222;
+            background: #000;
         }
 
         .video-container iframe {
@@ -105,65 +99,52 @@
         }
 
         .briefing {
-            margin-top: 40px;
+            margin-top: 50px;
             line-height: 1.8;
             font-weight: 300;
-            max-width: 800px;
+            max-width: 750px;
+            font-size: 1.05rem;
         }
 
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
+        .briefing p { margin-bottom: 25px; }
+
+        .cta-section {
             margin-top: 60px;
-        }
-
-        .gallery img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border: 1px solid #333;
-            filter: grayscale(30%);
-            transition: 0.3s;
-        }
-
-        .gallery img:hover { filter: grayscale(0%); border-color: var(--accent-color); }
-
-        .acquisition-notice {
-            margin-top: 80px;
-            padding: 30px;
-            border: 1px solid #333;
+            padding: 40px;
+            border: 1px solid #222;
             background: rgba(255,255,255,0.02);
             text-align: center;
         }
 
         .btn {
             display: inline-block;
-            margin-top: 20px;
-            padding: 12px 30px;
+            padding: 15px 40px;
             border: 1px solid var(--accent-color);
             color: var(--accent-color);
             text-decoration: none;
-            letter-spacing: 0.1rem;
+            letter-spacing: 0.2rem;
             font-size: 0.8rem;
+            transition: 0.3s;
         }
+
+        .btn:hover { background: var(--accent-color); color: #000; }
 
         @media (max-width: 900px) {
             .main-content { grid-template-columns: 1fr; }
-            .sidebar { border-right: none; border-bottom: 1px solid #333; padding-bottom: 20px; }
+            .sidebar { border-right: none; border-bottom: 1px solid #222; padding-bottom: 30px; }
         }
     </style>
 </head>
 <body>
 
     <nav class="nav-bar">
-    <a href="index.html">Home</a>
-    <a href="archive.html">Archive</a>
-    <a href="briefing.html">Briefing</a>
-    <a href="physics.html">Physics</a>
-    <a href="contact.html">Contact</a>
-</nav>
-    
+        <a href="index.html">Home</a>
+        <a href="archive.html">Archive</a>
+        <a href="briefing.html">Briefing</a>
+        <a href="physics.html">Physics</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
     <div class="header">
         <h1>CYGNUS</h1>
     </div>
@@ -171,50 +152,44 @@
     <div class="main-content">
         <aside class="sidebar">
             <div class="sidebar-item">
-                <span class="sidebar-label">COORDINATES</span>
-                RA 19h 58m 21.67s | Dec +35° 12′ 05.7″
+                <span class="sidebar-label">MISSION CONTROL</span>
+                CYGNUS PROGRAM // DR. J. CHEN
             </div>
             <div class="sidebar-item">
-                <span class="sidebar-label">VELOCITY</span>
-                0.999c [Relativistic Limit]
+                <span class="sidebar-label">PRIMARY OBJECTIVE</span>
+                BINARY INSPIRAL SURVEY #772-B
             </div>
             <div class="sidebar-item">
-                <span class="sidebar-label">DETECTION</span>
-                Deep Space Survey #772-B
+                <span class="sidebar-label">ANOMALY DETECTED</span>
+                DYSON-SCALE ANGULAR MOMENTUM SHIFT
             </div>
             <div class="sidebar-item">
-                <span class="sidebar-label">STATUS</span>
-                Pre-Production // Phase I
+                <span class="sidebar-label">IMPACT WINDOW</span>
+                T-MINUS 35 DAYS [RELATIVISTIC]
             </div>
         </aside>
 
         <section>
-            <div class="video-section">
-                <div class="video-container">
-                    <iframe src="https://player.vimeo.com/video/1165476107?title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                </div>
+            <div class="video-container">
+                <iframe src="https://player.vimeo.com/video/YOUR_VIMEO_ID?title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
             </div>
 
             <div class="briefing">
-                <p>During a routine deep-space survey, high-energy gamma-ray bursts were identified originating from the Cygnus constellation. Initial analysis suggested a natural pulsar event. Further investigation revealed a terrifying reality: an ultra-relativistic jet, precisely aimed at Sol, moving at 99.9% the speed of light.</p>
-                <p><strong>CYGNUS</strong> is a hard sci-fi exploration into the physics of Type III civilizations and the logistical horror of a high-velocity impact event.</p>
+                <p>Dr. Jamie Chen and the <em>Cygnus Program</em> were sent to the galactic rim for a routine survey of a binary black hole inspiral. It was supposed to be a triumph of human physics—until the data stopped making sense.</p>
+                <p>Deep within the accretion disk, the team discovered the impossible: a Dyson-scale arc manipulating the binary's momentum. This isn't a natural phenomenon. It’s a Type III engineering project.</p>
+                <p>A relativistic jet has been gimbaled. A "sterilization corridor" has been cleared. And humanity just realized we aren't the observers—we're the target.</p>
+                <p><strong>The countdown has begun. We have 35 days to break the math.</strong></p>
             </div>
 
-            <div class="gallery">
-                <img src="https://github.com/cygnus-the-series/cygnus-site/blob/main/Black-hole-Jamie.png?raw=true" alt="Concept Art">
-                <img src="https://github.com/cygnus-the-series/cygnus-site/blob/main/Black-hole-Jamie.png?raw=true" alt="Concept Art">
-                <img src="https://github.com/cygnus-the-series/cygnus-site/blob/main/Black-hole-Jamie.png?raw=true" alt="Concept Art">
-            </div>
-
-            <div class="acquisition-notice">
-                <p style="color: #666; font-size: 0.9rem;">The production is currently reviewing inquiries for high-fidelity VFX and Cinematography collaboration. For technical briefing access, contact the office.</p>
-                <a href="mailto:info@cygnustheseries.com" class="btn">Inquire for Collaboration</a>
+            <div class="cta-section">
+                <p style="color: #666; font-size: 0.9rem; margin-bottom: 25px;">The production is currently reviewing inquiries for high-fidelity VFX and Cinematography collaboration.</p>
+                <a href="contact.html" class="btn">INQUIRE FOR COLLABORATION</a>
             </div>
         </section>
     </div>
 
-    <footer style="padding: 100px 40px 40px; text-align: center; color: #444; font-size: 0.7rem; letter-spacing: 0.2rem;">
-        &copy; 2026 CYGNUS PRODUCTIONS // SAN FRANCISCO
+    <footer style="padding: 80px 40px; text-align: center; color: #444; font-size: 0.7rem; letter-spacing: 0.2rem;">
+        &copy; 2026 CYGNUS PRODUCTIONS // TORRANCE, CA
     </footer>
 
 </body>
