@@ -117,7 +117,6 @@
 
         .metadata span { display: block; color: #888; margin-bottom: 4px; }
 
-        /* Fullscreen Lightbox Styles */
         #lightbox {
             display: none;
             position: fixed;
@@ -163,4 +162,56 @@
     <main class="grid-container">
         
         <div class="archive-item" onclick="openLightbox(this)">
-            <img
+            <img src="https://github.com/cygnus-the-series/cygnus-site/blob/main/Cynus-team.png?raw=true" alt="Cygnus Program Survey Team">
+            <div class="overlay">
+                <div class="metadata">
+                    <span>SUBJECT: CYGNUS SURVEY TEAM</span>
+                    LOCATION: SURVEYOR ONE // COCKPIT INTERIOR
+                </div>
+            </div>
+        </div>
+
+        <div class="archive-item" onclick="openLightbox(this)">
+            <img src="https://github.com/cygnus-the-series/cygnus-site/blob/main/binary.png?raw=true" alt="Binary Black Hole System">
+            <div class="overlay">
+                <div class="metadata">
+                    <span>SUBJECT: BINARY INSPIRAL ANOMALY</span>
+                    LOCATION: ACCRETION DISK PERIPHERY // PHAETHON ARC IDENTIFIED
+                </div>
+            </div>
+        </div>
+
+        <div class="archive-item" onclick="openLightbox(this)">
+            <img src="https://github.com/cygnus-the-series/cygnus-site/blob/main/jet-simulation.png?raw=true" alt="Relativistic Jet Simulation">
+            <div class="overlay">
+                <div class="metadata">
+                    <span>SUBJECT: JET VECTOR SIMULATION</span>
+                    INT: MILKY WAY INTERSECTION // TARGET: SOL SYSTEM
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="">
+    </div>
+
+    <footer style="padding: 60px 40px; text-align: center; color: #333; font-size: 0.6rem; letter-spacing: 0.2rem;">
+        END OF ENCRYPTED DATA // CYGNUS PROGRAM
+    </footer>
+
+    <script>
+        function openLightbox(element) {
+            const imgSrc = element.querySelector('img').src;
+            document.getElementById('lightbox-img').src = imgSrc;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
