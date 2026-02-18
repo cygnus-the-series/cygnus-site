@@ -15,15 +15,17 @@
             --dim-text: #888;
         }
 
-        body {
+ body, html {
+            margin: 0;
+            padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: 'Inter', sans-serif;
-            margin: 0;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh; /* Ensure body takes full viewport height */
+            /* Parallax Background */
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://github.com/cygnus-the-series/cygnus-site/blob/main/Gemini_Generated_Image_l9ehdll9ehdll9eh.png?raw=true');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
         }
 
         /* Navigation Bar - (Include styles from index.html here for consistency) */
