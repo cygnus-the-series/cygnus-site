@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYGNUS | Orbital Physics</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&display=swap');
+:root { --bg: #050505; --text: #f0f0f0; --gold: #c5a059; }
+body, html { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; overflow: hidden; }
+.nav { display: flex; justify-content: center; padding: 30px 0; gap: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); position: absolute; top: 0; width: 100%; z-index: 100; background: rgba(5,5,5,0.6); backdrop-filter: blur(15px); }
+.nav a { color: var(--text); text-decoration: none; font-size: 0.7rem; letter-spacing: 0.3rem; text-transform: uppercase; font-weight: 300; }
+#ui { position: absolute; bottom: 40px; left: 40px; color: #444; font-family: monospace; font-size: 0.7rem; z-index: 10; line-height: 1.6; }
+#ui span { color: var(--gold); display: block; margin-bottom: 5px; }
+</style>
+</head>
+<body>
+<nav class="nav">
+    <a href="./">Home</a>
+    <a href="archive">Archive</a>
+    <a href="briefing">Briefing</a>
+    <a href="physics">Physics</a>
+    <a href="contact">Contact</a>
+</nav>
+<div id="ui"><span>DATA_STREAM // 772-B</span>STATUS: STEADY_STATE<br>EMISSION: BIPOLAR_JET</div>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js", "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/" } }</script>
+<script type="module">
+import * as THREE from 'three';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+let sc, cam, re, co, pa, st, je, sBH, sDi;
+const rad = 180;
+init(); animate();
+function init() {
+sc = new THREE.Scene();
+cam = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 1, 3000);
+cam.position.set(0, 220, 500); cam.lookAt(0,0,0);
+re = new THREE.WebGLRenderer({ antialias: true });
+re.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(re.domElement);
+const bl = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.4, 0.4, 0.85);
+bl.threshold = 0.1; bl.strength = 1.4;
+co = new EffectComposer(re);
+co.addPass(new RenderPass(sc, cam)); co.addPass(bl);
+const sG = new THREE.BufferGeometry(); const sP = [];
+for(let i=0; i<5000; i++) sP.push((Math.random()-0.5)*2500, (Math.random()-0.5)*2500, (Math.random()-0.5)*2500);
+sG.setAttribute('position', new THREE.Float32BufferAttribute(sP, 3));
+st = new THREE.Points(sG, new THREE.PointsMaterial({color: 0x333333, size: 0.8}));
+sc.add(st);
+const jG = new THREE.BufferGeometry(); const jP = new Float32Array(9000 * 3);
+for(let i=0; i<9000; i++) { jP[i*3+1] = (i%2==0?1:-1) * Math.random() * 850; }
+jG.setAttribute('position', new THREE.BufferAttribute(jP, 3));
+je = new THREE.Points(jG, new THREE.PointsMaterial({color: 0x00d9ff, size: 1.1, transparent: true, opacity: 0.8, blending: THREE.AdditiveBlending}));
+sc.add(je);
+const dG = new THREE.BufferGeometry(); const dP = new Float32Array(70000 * 3); const dC = new Float32Array(70000 * 3);
+for(let i=0; i<70000; i++) {
+const r = Math.random()*320+70, t = Math.random()*Math.PI*2;
+dP[i*3] = Math.cos(t)*r; dP[i*3+1] = (Math.random()-0.5)*6; dP[i*3+2] = Math.sin(t)*r;
+const c = new THREE.Color('#c5a059'); c.offsetHSL(0, 0, (Math.random()-0.5)*0.3);
+dC[i*3]=c.r; dC[i*3+1]=c.g; dC[i*3+2]=c.b;
+}
+dG.setAttribute('position', new THREE.BufferAttribute(dP, 3));
+dG.setAttribute('color', new THREE.BufferAttribute(dC, 3));
+pa = new THREE.Points(dG, new THREE.PointsMaterial({size: 1.0, vertexColors: true, transparent: true, opacity: 0.7, blending: THREE.AdditiveBlending}));
+sc.add(pa);
+sc.add(new THREE.Mesh(new THREE.SphereGeometry(38,32,32), new THREE.MeshBasicMaterial({color: 0x000000})));
+sBH = new THREE.Mesh(new THREE.SphereGeometry(12,32,32), new THREE.MeshBasicMaterial({color: 0x000000}));
+sc.add(sBH);
+sDi = new THREE.Mesh(new THREE.TorusGeometry(22,4,2,50), new THREE.MeshBasicMaterial({color: 0xc5a059, transparent: true, opacity: 0.25}));
+sDi.rotation.x = Math.PI/2; sc.add(sDi);
+for(let i=0; i<1500; i++) up(i*0.016);
+}
+function up(t) {
+const sx = Math.cos(t*0.4)*rad, sz = Math.sin(t*0.4)*rad;
+sBH.position.set(sx, 0, sz); sDi.position.set(sx, 0, sz);
+const p = pa.geometry.attributes.position.array;
+for(let i=0; i<70000; i++) {
+const dx = p[i*3]-sx, dz = p[i*3+2]-sz;
+if(dx*dx+dz*dz<2200) { p[i*3]+=dx*0.05; p[i*3+2]+=dz*0.05; }
+}
+pa.geometry.attributes.position.needsUpdate = true;
+const jp = je.geometry.attributes.position.array;
+for(let i=0; i<9000; i++) {
+const dir = i%2==0?1:-1; jp[i*3+1] += dir*7;
+if(dir==1 && jp[i*3+1]>800) jp[i*3+1] = Math.random()*5;
+if(dir==-1 && jp[i*3+1]<-800) jp[i*3+1] = -Math.random()*5;
+const h = jp[i*3+1], tw = h*0.06, r = 4+(Math.abs(h)*0.015);
+jp[i*3] = Math.cos(tw+i)*r; jp[i*3+2] = Math.sin(tw+i)*r;
+}
+je.geometry.attributes.position.needsUpdate = true;
+}
+function animate() {
+requestAnimationFrame(animate); up(Date.now()*0.001);
+pa.rotation.y += 0.0007; st.rotation.y += 0.00004;
+co.render();
+}
+</script>
+</body>
+</html>
