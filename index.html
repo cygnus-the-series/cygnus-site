@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CYGNUS | The Series </title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100&family=Manrope:wght@200;300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100&family=Manrope:wght@200;300;400;500;600;700&display=swap');
 
         :root {
             --bg-color: #050505;
@@ -20,7 +21,7 @@
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Manrope', sans-serif;
             /* Parallax Background */
             background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://github.com/cygnus-the-series/cygnus-site/blob/main/Black-hole-Jamie.png?raw=true');
             background-attachment: fixed;
@@ -58,6 +59,7 @@
         }
 
         .header h1 {
+            font-family: 'Inter', sans-serif;
             font-size: clamp(3rem, 10vw, 8rem);
             font-weight: 100;
             letter-spacing: 2rem;
@@ -101,13 +103,36 @@
 
         .briefing {
             margin-top: 50px;
-            line-height: 1.8;
+            line-height: 1.9;
             font-weight: 300;
             max-width: 750px;
             font-size: 1.05rem;
+            color: #e8e3d8; /* warm off-white */
         }
 
         .briefing p { margin-bottom: 25px; }
+
+        .briefing a {
+            color: var(--accent-color);
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-color: var(--accent-color);
+            text-underline-offset: 4px;
+        }
+
+        .briefing a:hover {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .briefing strong {
+            font-weight: 700;
+            letter-spacing: 0.05rem;
+        }
+
+        .gold {
+            color: var(--accent-color);
+        }
 
         .cta-section {
             margin-top: 60px;
@@ -176,10 +201,15 @@
             </div>
 
             <div class="briefing">
-                <p>Dr. Jamie Chen and the <em>Cygnus Program</em> were sent to the galactic rim for a routine survey of a binary black hole inspiral. It was supposed to be a triumph of human physics—until the data stopped making sense.</p>
-                <p>Deep within the accretion disk, the team discovered the impossible: a Dyson-scale arc manipulating the binary's momentum. This isn't a natural phenomenon. It’s a Type III engineering project.</p>
-                <p>A relativistic jet has been gimbaled. A "sterilization corridor" has been cleared. And humanity just realized we aren't the observers—we're the target.</p>
-                <p><strong>The countdown has begun. We have 35 days to break the math.</strong></p>
+                <p><span class="gold">Dr. Jamie Chen</span> and her team, part of the <em><strong class="gold">Cygnus Program</strong></em>, were sent beyond the Milky Way to conduct a routine survey of a <a href="https://svs.gsfc.nasa.gov/10140/" target="_blank" rel="noopener noreferrer"><strong>binary black hole inspiral</strong></a>. It was meant to be a triumph of human physics — until the data stopped making sense.</p>
+
+                <p>Deep within the <a href="https://science.nasa.gov/universe/black-holes/anatomy/#acrretion-disk" target="_blank" rel="noopener noreferrer"><strong>accretion disk</strong></a>, the team detected the impossible: a <a href="https://astrobites.org/2021/09/15/black-hole-dyson-sphere/" target="_blank" rel="noopener noreferrer"><strong>Dyson-scale arc</strong></a> manipulating the binary's orbital momentum. Not a natural instability. Not a modeling error. A <a href="https://www.britannica.com/science/Kardashev-scale" target="_blank" rel="noopener noreferrer"><strong>Type III</strong></a> intervention.</p>
+
+                <p>A <a href="https://nustar.caltech.edu/page/relativistic-jets" target="_blank" rel="noopener noreferrer"><strong>relativistic jet</strong></a> has been deliberately gimbaled. A sterilization corridor has been cleared through intergalactic space. Humanity has just realized we aren’t the observers.</p>
+
+                <p><strong class="gold">We’re the target.</strong></p>
+
+                <p><strong class="gold">T-minus 35 days.</strong></p>
             </div>
 
             <div class="cta-section">
