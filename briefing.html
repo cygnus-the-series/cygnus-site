@@ -15,27 +15,25 @@
             --dim-text: #888;
         }
 
- body, html {
+        body, html {
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: 'Inter', sans-serif;
-            /* Parallax Background */
             background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://github.com/cygnus-the-series/cygnus-site/blob/main/Gemini_Generated_Image_l9ehdll9ehdll9eh.png?raw=true');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
         }
 
-        /* Navigation Bar - (Include styles from index.html here for consistency) */
         .nav-bar {
             display: flex;
             justify-content: center;
             padding: 30px 0;
             gap: 40px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            flex-shrink: 0; /* Prevents shrinking */
+            flex-shrink: 0;
         }
 
         .nav-bar a {
@@ -50,15 +48,14 @@
 
         .nav-bar a:hover { color: var(--accent-color); }
 
-        /* Black Hole Animation Container */
         .animation-container {
             width: 100%;
-            height: 350px; /* Fixed height for the animation */
+            height: 350px;
             background-color: #000;
             position: relative;
             overflow: hidden;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            cursor: grab; /* Indicates interactivity */
+            cursor: grab;
             flex-shrink: 0;
         }
 
@@ -71,9 +68,8 @@
             height: 50px;
             background-color: #000;
             border-radius: 50%;
-            box-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.1), /* Accretion disk glow */
+            box-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.1), 
                         0 0 100px 30px rgba(255, 255, 255, 0.05);
-            transition: box-shadow 0.2s ease-out; /* For hover effect */
         }
 
         .accretion-disk {
@@ -93,7 +89,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) rotateZ(0deg); /* Initial rotation */
+            transform: translate(-50%, -50%) rotateZ(0deg);
             width: 4px;
             height: 300px;
             background: linear-gradient(to top, rgba(197, 160, 89, 0) 0%, var(--accent-color) 20%, var(--accent-color) 80%, rgba(197, 160, 89, 0) 100%);
@@ -112,9 +108,8 @@
             to { opacity: 0.9; }
         }
 
-        /* Briefing Content */
         .briefing-content {
-            flex-grow: 1; /* Allows content to take available space */
+            flex-grow: 1;
             max-width: 900px;
             margin: 80px auto;
             padding: 0 40px;
@@ -141,6 +136,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 10px;
             font-size: 1.2rem;
+            text-transform: uppercase;
         }
 
         .briefing-content strong { color: var(--accent-color); font-weight: 400; }
@@ -167,7 +163,6 @@
 
         .call-to-action .btn:hover { background: var(--accent-color); color: #000; }
 
-        /* Footer */
         footer {
             padding: 80px 40px;
             text-align: center;
@@ -175,13 +170,13 @@
             font-size: 0.7rem;
             letter-spacing: 0.2rem;
             flex-shrink: 0;
-            margin-top: auto; /* Pushes footer to the bottom */
+            margin-top: auto;
         }
     </style>
 </head>
 <body>
 
-    <nav class="nav-bar">
+<nav class="nav-bar">
     <a href="index.html">Home</a>
     <a href="archive.html">Archive</a>
     <a href="briefing.html">Briefing</a>
@@ -189,56 +184,60 @@
     <a href="contact.html">Contact</a>
 </nav>
 
-    <div class="animation-container" id="blackHoleAnimation">
-        <div class="black-hole-core"></div>
-        <div class="accretion-disk"></div>
-        <div class="accretion-disk" style="animation-delay: -10s; transform: translate(-50%, -50%) rotate(180deg);"></div>
-        <div class="relativistic-jet" id="jetOne" style="transform: translate(-50%, -50%) rotateZ(0deg);"></div>
-        <div class="relativistic-jet" id="jetTwo" style="transform: translate(-50%, -50%) rotateZ(180deg);"></div>
+<div class="animation-container" id="blackHoleAnimation">
+    <div class="black-hole-core"></div>
+    <div class="accretion-disk"></div>
+    <div class="accretion-disk" style="animation-delay: -10s; transform: translate(-50%, -50%) rotate(180deg);"></div>
+    <div class="relativistic-jet" id="jetOne" style="transform: translate(-50%, -50%) rotateZ(0deg);"></div>
+    <div class="relativistic-jet" id="jetTwo" style="transform: translate(-50%, -50%) rotateZ(180deg);"></div>
+</div>
+
+<main class="briefing-content">
+    <h1>PROJECT BRIEFING // CLASSIFIED</h1>
+
+    <p>In the year **2661**, humanity launched the <em>Cygnus Program</em>, an interstellar mission designed to investigate the profound physics of binary black hole systems. Utilizing an Alcubierre-metric drive, the crew of the <strong>Surveyor-9</strong> jumped 10 million light-years to study the final stages of a galactic-scale orbital decay.</p>
+    
+    <p>They expected a physics survey. They found a Type III civilization cold war.</p>
+
+    <h2>THE DISCOVERY</h2>
+    <p>The system is a celestial engine. This megastructure is the result of an ancient divorce: two factions once shared a common ancestry before the <strong>Arc Engineers</strong> obsessed over the Dyson-scale harvest of the accretion disk. While the Arc Engineers remained trapped in the time-dilated gravity of the engine—locked in their original mission to sterilize any biological variables that might threaten their existence—the <strong>Aether</strong> moved on. Having evolved beyond the conflict, the Aether have become indifferent observers of the very engine they once helped conceive.</p>
+    
+    <p>To protect their system, the Arc Engineers have gimbaled a relativistic jet into a "sterilization corridor"—a focused beam of high-energy particles designed to prune emerging biological variables. Having suffered a devastating attack in their past, the Arc Engineers now proactively disrupt any potential threats that could eventually interfere with their system's stability.</p>
+
+    <h2>THE STAKES</h2>
+    <p>Humanity is the variable they didn't model. The <em>Surveyor-9</em> team realizes that Earth lies directly in the path of the sterilization corridor. Because of the sheer distance and the speed of light, the "beam" is already on its way.</p>
+    
+    <p>To the Arc Engineers, Earth’s destruction isn't an act of war; it is a <strong>mathematical correction</strong>.</p>
+
+    <h2>THE MISSION</h2>
+    <p><strong>CYGNUS</strong> is the logistical horror of a countdown. While the crew navigates the crushing time dilation and gravitational shear of the binary system, they must find a way to disrupt a Type III engineering project using their own rudimentary capabilities.</p>
+    
+    <p>It is a story of human ingenuity vs. cosmic indifference. We aren't fighting a villain; we are fighting celestial inevitability.</p>
+
+    <div class="call-to-action">
+        <p style="color: var(--dim-text); font-size: 0.9rem; margin-bottom: 25px;">Dive deeper into the physics behind Project Cygnus.</p>
+        <a href="physics.html" class="btn">EXPLORE THE SCIENCE</a>
     </div>
+</main>
 
-    <main class="briefing-content">
-        <h1>PROJECT BRIEFING // CLASSIFIED</h1>
+<footer>
+    &copy; 2026 CYGNUS PRODUCTIONS // SAN FRANCISCO, CA
+</footer>
 
-        <p>In the year 2108, humanity launched its first interstellar reconnaissance mission, the <em>Cygnus Program</em>, led by Dr. Jamie Chen. Utilizing a prototype Alcubierre-metric drive, the crew of the <em>Surveyor One</em> jumped 20 million light-years to a supermassive binary black hole system to study the final stages of a galactic-scale inspiral.</p>
-        <p>They expected a physics survey. They found a Type III civilization cold war.</p>
+<script>
+    const animationContainer = document.getElementById('blackHoleAnimation');
+    const jetOne = document.getElementById('jetOne');
+    const jetTwo = document.getElementById('jetTwo');
 
-        <h2>THE DISCOVERY</h2>
-        <p>The system is not just a natural phenomenon; it is a celestial engine. Two ancient factions—the <strong>Aether</strong> (post-physical, advanced observers) and the <strong>Phaethon</strong> (relativistic, Dyson-scale engineers)—are locked in a million-year-old stalemate over the system’s energy. </p>
-        <p>The <strong>Phaethon</strong> have constructed a series of Dyson-scale arcs that harvest the accretion disk’s angular momentum. To maintain the stability of their harvest, they have gimbaled a relativistic jet into a "sterilization corridor"—a focused beam of high-energy particles designed to prune the surrounding sectors of any emerging biological variables that could eventually interfere with the engine.</p>
+    animationContainer.addEventListener('mousemove', (e) => {
+        const rect = animationContainer.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
 
-        <h2>THE STAKES</h2>
-        <p>Humanity is the variable they didn't model. The <em>Surveyor One</em> team realizes that Earth lies directly in the path of the sterilization corridor. Because of the sheer distance and the speed of light, the "beam" is already on its way.</p>
-        <p>To the Phaethon, Earth’s destruction isn't an act of war; it is a <strong>mathematical correction</strong>.</p>
-
-        <h2>THE NARRATIVE HOOK</h2>
-        <p><strong>CYGNUS</strong> is the logistical horror of a countdown. While the crew navigates the crushing time dilation and gravitational shear of the binary system, they must find a way to disrupt a Type III engineering project using Type I technology. It is a story of human ingenuity vs. cosmic indifference. We aren't fighting a villain; we are fighting the math.</p>
-
-        <div class="call-to-action">
-            <p style="color: var(--dim-text); font-size: 0.9rem; margin-bottom: 25px;">Dive deeper into the physics behind Project Cygnus.</p>
-            <a href="physics" class="btn">EXPLORE THE SCIENCE</a>
-        </div>
-    </main>
-
-    <footer>
-        &copy; 2026 CYGNUS PRODUCTIONS // TORRANCE, CA
-    </footer>
-
-    <script>
-        // Simple JavaScript for interactive jet rotation
-        const animationContainer = document.getElementById('blackHoleAnimation');
-        const jetOne = document.getElementById('jetOne');
-        const jetTwo = document.getElementById('jetTwo');
-
-        animationContainer.addEventListener('mousemove', (e) => {
-            const rect = animationContainer.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-
-            const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX) * (180 / Math.PI);
-            jetOne.style.transform = `translate(-50%, -50%) rotateZ(${angle + 90}deg)`;
-            jetTwo.style.transform = `translate(-50%, -50%) rotateZ(${angle - 90}deg)`;
-        });
-    </script>
+        const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX) * (180 / Math.PI);
+        jetOne.style.transform = `translate(-50%, -50%) rotateZ(${angle + 90}deg)`;
+        jetTwo.style.transform = `translate(-50%, -50%) rotateZ(${angle - 90}deg)`;
+    });
+</script>
 </body>
 </html>
