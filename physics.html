@@ -112,7 +112,7 @@
             },
             {
                 title: "RELATIVISTIC JETS",
-                text: "Extreme magnetic fields at the poles twist and snap, launching <strong style='color: var(--gold);'>relativistic jets</strong> (shown in blue). These beams blast ionized matter into the void at 99.9% the speed of light. At these velocities, <strong style='color: var(--gold);'>the jets eviscerate everything in their path</strong>, stripping away atmospheres in seconds and dismantling molecular bonds until the planet is reduced to a stream of subatomic debris.",
+                text: "Extreme magnetic fields at the poles twist and snap, launching <strong style='color: var(--gold);'>relativistic jets</strong> (shown in blue). These beams blast ionized matter into the void at 99.9% the speed of light. At these velocities, <strong style='color: var(--gold);'>the jets eviscerate any matter they encounter</strong>. For an intercepted world, this means an atmosphere stripped in seconds and molecular bonds dismantled until the planet is reduced to a stream of subatomic debris.",
                 cam: { rad: 750, height: 50 } // Pull way back to see the full jets
             },
             {
@@ -317,7 +317,7 @@
 
             // ---------- Black hole meshes (static, non-lit) ----------
             const bhM = new THREE.MeshBasicMaterial({color: 0x000000});
-            pBH = new THREE.Mesh(new THREE.SphereGeometry(38, 32, 32), bhM);
+            pBH = new THREE.Mesh(new THREE.SphereGeometry(68, 32, 32), bhM);
             sc.add(pBH);
             sBH = new THREE.Mesh(new THREE.SphereGeometry(12, 32, 32), bhM);
             sc.add(sBH);
