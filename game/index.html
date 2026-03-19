@@ -18,11 +18,26 @@
             left: 20px;
             z-index: 100;
         }
+        h1 {
+            margin: 0 0 10px 0;
+            color: #d4af37;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            font-family: sans-serif;
+            letter-spacing: 5px;
+            font-size: 2rem;
+        }
         #fuel-container {
             width: 200px;
             height: 15px;
             border: 2px solid white;
             margin-top: 5px;
+        }
+        canvas {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
         }
     </style>
     <!-- IMPORT MAP: Tells the browser where to find "three" and "three/addons/" -->
@@ -37,13 +52,14 @@
 </head>
 <body>
     <div id="ui-container">
+        <h1>CYGNUS</h1>
         <div id="velocity-display">VELOCITY: 0.00</div>
         <div id="fuel-container">
             <div id="fuel-bar" style="height: 100%; background: gold; width: 100%;"></div>
         </div>
     </div>
     
-    <!-- Load your main game script -->
-    <script type="module" src="./main.js"></script>
+    <!-- Use an absolute path so it loads even if you type cygnustheseries.com/game without the slash -->
+    <script type="module" src="/game/main.js"></script>
 </body>
 </html>
