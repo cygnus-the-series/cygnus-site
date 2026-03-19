@@ -22,8 +22,9 @@
             margin: 0 0 10px 0;
             color: #d4af37;
             text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-            font-family: sans-serif;
-            letter-spacing: 5px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 200;
+            letter-spacing: 8px;
             font-size: 2rem;
         }
         #fuel-container {
@@ -40,6 +41,12 @@
             z-index: -1;
         }
     </style>
+    <!-- Force trailing slash on live site so relative paths don't break -->
+    <script>
+        if (window.location.pathname.endsWith('/game')) {
+            window.location.replace(window.location.pathname + '/' + window.location.search + window.location.hash);
+        }
+    </script>
     <!-- IMPORT MAP: Tells the browser where to find "three" and "three/addons/" -->
     <script type="importmap">
         {
@@ -59,7 +66,7 @@
         </div>
     </div>
     
-    <!-- Use an absolute path so it loads even if you type cygnustheseries.com/game without the slash -->
-    <script type="module" src="/game/main.js"></script>
+    <!-- Use a relative path so it loads in Live Server AND on your live site -->
+    <script type="module" src="./main.js"></script>
 </body>
 </html>
