@@ -41,12 +41,6 @@
             z-index: -1;
         }
     </style>
-    <!-- Force trailing slash on live site so relative paths don't break -->
-    <script>
-        if (window.location.pathname.endsWith('/game')) {
-            window.location.replace(window.location.pathname + '/' + window.location.search + window.location.hash);
-        }
-    </script>
     <!-- IMPORT MAP: Tells the browser where to find "three" and "three/addons/" -->
     <script type="importmap">
         {
@@ -66,7 +60,17 @@
         </div>
     </div>
     
-    <!-- Use a relative path so it loads in Live Server AND on your live site -->
-    <script type="module" src="./main.js"></script>
+    <!-- BULLETPROOF SMART LOADER: Works locally and on GitHub regardless of slashes -->
+    <script type="module">
+        let scriptUrl = './main.js';
+        if (window.location.pathname.endsWith('game')) {
+            scriptUrl = window.location.pathname + '/main.js';
+        }
+        
+        import(scriptUrl).catch(err => {
+            document.getElementById('ui-container').innerHTML += `<div style="color: #ff5555; background: rgba(0,0,0,0.8); padding: 15px; border: 1px solid #ff5555; margin-top: 20px;"><b>ERROR LOADING MAIN.JS:</b><br>${err.message}<br><br>Ensure main.js is uploaded to GitHub and strictly lowercase.</div>`;
+            console.error(err);
+        });
+    </script>
 </body>
 </html>
